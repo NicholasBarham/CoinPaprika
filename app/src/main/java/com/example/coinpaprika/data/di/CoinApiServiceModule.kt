@@ -20,7 +20,7 @@ object CoinApiServiceModule {
     @Singleton
     fun provideCoinApiService(): CoinApiService {
         val loggingInterceptor = HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
+            level = HttpLoggingInterceptor.Level.HEADERS
         }
 
         val client = OkHttpClient.Builder()

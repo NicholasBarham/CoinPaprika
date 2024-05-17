@@ -1,4 +1,4 @@
-package com.example.coinpaprika
+package com.example.coinpaprika.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
