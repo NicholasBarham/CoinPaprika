@@ -1,9 +1,9 @@
-package com.example.coinpaprika.data.api
+package com.example.coinpaprika.data.api.api_data
 
 
 import com.google.gson.annotations.SerializedName
 
-data class CoinsDtoItem(
+data class CoinDto(
     @SerializedName("id")
     val id: String?,
     @SerializedName("name")
