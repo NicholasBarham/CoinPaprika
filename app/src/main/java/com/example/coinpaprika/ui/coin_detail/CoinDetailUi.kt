@@ -25,7 +25,7 @@ fun NavGraphBuilder.coinDetailScreen(navigateToCoinList: () -> Unit) {
 }
 
 fun NavController.navigateToCoinDetail(coinId: String) {
-    navigate(Screen.CoinList.withArgs(coinId))
+    navigate(Screen.AllCoins.withArgs(coinId))
 }
 
 @Composable
