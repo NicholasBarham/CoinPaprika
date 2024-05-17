@@ -9,4 +9,5 @@
     <string name="no_coins_error">No coins found</string>
     <string name="check_internet_error">Check your internet connection</string>
     <string name="appears_a_problem_error">There appears to be a problem</string>
+    <string name="coin_paprika">Coin Paprika</string>
 </resources>

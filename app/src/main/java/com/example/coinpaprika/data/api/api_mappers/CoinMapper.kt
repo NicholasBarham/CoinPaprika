@@ -9,7 +9,7 @@ class CoinMapper @Inject constructor() : Mapper<Coin, CoinDto> {
     override fun toDomain(data: CoinDto): Coin {
         return Coin(
             id = data.id ?: "",
-            name = data.name ?: "",
+            name = data.name?.trim() ?: "",
             symbol = data.symbol ?: "",
             rank = data.rank ?: 0,
             isNew = data.isNew ?: false,
