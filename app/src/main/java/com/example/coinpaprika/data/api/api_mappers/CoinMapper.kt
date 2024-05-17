@@ -17,5 +17,4 @@ class CoinMapper @Inject constructor() : Mapper<Coin, CoinDto> {
             coinType = getCoinTypeFromString(data.type ?: "")
         )
     }
-
 }
