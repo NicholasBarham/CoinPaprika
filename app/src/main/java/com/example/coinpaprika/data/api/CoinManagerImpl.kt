@@ -23,7 +23,9 @@ class CoinManagerImpl @Inject constructor(
                 val response = coinApi.getAllCoins()
                 if (response.isSuccessful) {
                     response.body()?.let { coinDtoList ->
-                        val coins = coinDtoList.map { coinMapper.toDomain(it) }
+                        val coins = coinDtoList
+                            .map { coinMapper.toDomain(it) }
+                            .sortedBy { it.name }
                         emit(Result.Success(coins))
                     } ?: emit(Result.Error(ApiError.RETURNING_NULL))
                 } else {
