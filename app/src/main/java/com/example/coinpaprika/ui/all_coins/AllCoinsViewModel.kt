@@ -51,8 +51,7 @@ class AllCoinsViewModelImpl @Inject constructor(
     ).stateIn(viewModelScope, SharingStarted.Lazily, false)
 
     override val error: StateFlow<ApiError?> = receivingCoinsResults
-        .filter { it is Result.Error }
-        .map { (it as Result.Error).error }
+        .map { (it as? Result.Error)?.error }
         .stateIn(viewModelScope, SharingStarted.Lazily, null)
 
     override fun refreshCoinList() {
