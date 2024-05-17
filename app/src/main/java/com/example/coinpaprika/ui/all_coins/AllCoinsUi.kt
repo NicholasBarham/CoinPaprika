@@ -7,20 +7,20 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.example.coinpaprika.ui.navigation.Screen
 
-fun NavGraphBuilder.coinListScreen(navigateToCoinDetail: (coinId: String) -> Unit) {
+fun NavGraphBuilder.allCoinsScreen(navigateToCoinDetail: (coinId: String) -> Unit) {
     composable(
-        route = Screen.CoinList.route
+        route = Screen.AllCoins.route
     ) {
         val viewModel: AllCoinsViewModel = hiltViewModel<AllCoinsViewModelImpl>()
-        CoinListUI()
+        AllCoinsUI()
     }
 }
 
-fun NavController.navigateToCoinList() {
-    navigate(Screen.CoinList.route)
+fun NavController.navigateToAllCoins() {
+    navigate(Screen.AllCoins.route)
 }
 
 @Composable
-fun CoinListUI() {
+fun AllCoinsUI() {
 
 }
