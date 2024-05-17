@@ -1,9 +1,10 @@
-package com.example.coinpaprika.data.api
+package com.example.coinpaprika.data.api.api_mappers
 
 import com.example.coinpaprika.data.api.api_data.Tag
 import com.example.coinpaprika.data.api.api_data.TagDto
+import javax.inject.Inject
 
-class TagMapper : Mapper<Tag, TagDto> {
+class TagMapper @Inject constructor() : Mapper<Tag, TagDto> {
     override fun toDomain(data: TagDto): Tag {
         return Tag(
             id = data.id ?: "",

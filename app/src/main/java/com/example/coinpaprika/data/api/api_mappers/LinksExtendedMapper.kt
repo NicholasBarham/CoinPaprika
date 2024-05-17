@@ -1,11 +1,12 @@
-package com.example.coinpaprika.data.api
+package com.example.coinpaprika.data.api.api_mappers
 
 import com.example.coinpaprika.data.api.api_data.LinksExtended
 import com.example.coinpaprika.data.api.api_data.LinksExtendedDto
 import com.example.coinpaprika.data.api.api_data.Stats
 import com.example.coinpaprika.data.api.api_data.StatsDto
+import javax.inject.Inject
 
-class LinksExtendedMapper : Mapper<LinksExtended, LinksExtendedDto> {
+class LinksExtendedMapper @Inject constructor() : Mapper<LinksExtended, LinksExtendedDto> {
 
     override fun toDomain(data: LinksExtendedDto): LinksExtended {
         return LinksExtended(

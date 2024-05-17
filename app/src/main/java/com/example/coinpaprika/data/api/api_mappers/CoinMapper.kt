@@ -1,10 +1,11 @@
-package com.example.coinpaprika.data.api
+package com.example.coinpaprika.data.api.api_mappers
 
 import com.example.coinpaprika.data.api.api_data.Coin
 import com.example.coinpaprika.data.api.api_data.CoinDto
 import com.example.coinpaprika.data.api.api_data.getCoinTypeFromString
+import javax.inject.Inject
 
-class CoinMapper : Mapper<Coin, CoinDto> {
+class CoinMapper @Inject constructor() : Mapper<Coin, CoinDto> {
     override fun toDomain(data: CoinDto): Coin {
         return Coin(
             id = data.id ?: "",

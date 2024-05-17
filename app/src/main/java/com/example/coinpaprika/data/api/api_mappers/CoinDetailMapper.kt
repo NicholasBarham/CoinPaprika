@@ -1,4 +1,4 @@
-package com.example.coinpaprika.data.api
+package com.example.coinpaprika.data.api.api_mappers
 
 import com.example.coinpaprika.data.api.api_data.CoinDetail
 import com.example.coinpaprika.data.api.api_data.CoinDetailDto
@@ -18,10 +18,10 @@ import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 
 class CoinDetailMapper @Inject constructor(
-    private val tagMapper: TagMapper,
-    private val teamMapper: TeamMapper,
-    private val linksMapper: LinksMapper,
-    private val linksExtendedMapper: LinksExtendedMapper,
+    private val tagMapper: Mapper<Tag, TagDto>,
+    private val teamMapper: Mapper<Team, TeamDto>,
+    private val linksMapper: Mapper<Links, LinksDto>,
+    private val linksExtendedMapper: Mapper<LinksExtended, LinksExtendedDto>,
 ) : Mapper<CoinDetail, CoinDetailDto> {
     override fun toDomain(data: CoinDetailDto): CoinDetail {
         return CoinDetail(
