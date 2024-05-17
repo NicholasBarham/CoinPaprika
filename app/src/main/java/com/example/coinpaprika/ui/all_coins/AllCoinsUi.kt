@@ -50,16 +50,18 @@ fun NavGraphBuilder.allCoinsScreen(navigateToCoinDetail: (coinId: String) -> Uni
         val viewModel: AllCoinsViewModel = hiltViewModel<AllCoinsViewModelImpl>()
         val coinList = viewModel.coins.collectAsState()
         val error = viewModel.error.collectAsState()
+        val isLoading = viewModel.isLoading.collectAsState()
 
         LaunchedEffect(key1 = true) {
             viewModel.refreshCoinList()
         }
 
         AllCoinsUI(
-            coinClicked = { /*coinId -> navigateToCoinDetail(coinId)*/ },
+            coinClicked = { coinId -> navigateToCoinDetail(coinId) },
             coinList = coinList.value,
             refreshClicked = { viewModel.refreshCoinList() },
-            errorPresent = error.value
+            errorPresent = error.value,
+            isLoading = isLoading.value
         )
     }
 }
@@ -74,7 +76,8 @@ fun AllCoinsUI(
     coinList: List<Coin>,
     coinClicked: (coinId: String) -> Unit,
     errorPresent: ApiError?,
-    refreshClicked: () -> Unit
+    refreshClicked: () -> Unit,
+    isLoading: Boolean
 ) {
     Column (
         modifier = Modifier
@@ -87,7 +90,7 @@ fun AllCoinsUI(
                 .height(56.dp)
         ) {
             Text(
-                text = "Coin Paprika",
+                text = stringResource(id = R.string.coin_paprika),
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.align(Alignment.Center)
@@ -189,7 +192,7 @@ fun ApiErrorUI(apiError: ApiError): String {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun AllCoinsUIPreview() {
-    AllCoinsUI( createCoinList(50), {}, ApiError.BAD_REQUEST, {})
+    AllCoinsUI( createCoinList(50), {}, ApiError.BAD_REQUEST, {}, true)
 }
 
 @Preview(showBackground = true)

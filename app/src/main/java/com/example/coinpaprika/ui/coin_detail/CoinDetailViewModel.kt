@@ -48,7 +48,7 @@ class CoinDetailViewModelImpl @Inject constructor(
     override val isLoading: StateFlow<Boolean> = merge(
         fetchCoinDetailTrigger.map { true },
         receivingCoinDetail.map { false }
-    ).stateIn(viewModelScope, SharingStarted.Lazily, false)
+    ).stateIn(viewModelScope, SharingStarted.Lazily, true)
 
     override val error: StateFlow<ApiError?> = receivingCoinDetail
         .filter { it is Result.Error }
